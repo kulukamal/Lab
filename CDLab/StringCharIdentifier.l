@@ -1,10 +1,10 @@
 %{
 	int flag=1,Char=0,String=0;
 %}
-
+letter [a-zA-Z0-9!@#$%^&*()_+-=]
 %%
-"'"[a-zA-Z0-9]"'" 		{Char = 1;}
-"\""([a-zA-Z0-9]*)"\""	{String = 1;}
+"'"{letter}"'" 		{Char = 1;}
+"\""({letter}*)"\""	{String = 1;}
 .					{}
 \n					{return 0;}
 %%

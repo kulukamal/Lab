@@ -56,7 +56,7 @@ main()
 {
 	yylex();
 	printf("%d : %d : %d : %d\n",Open,Close,op1,op2);
-	if(flag && Open==Close && (op1>op2||op1==0 && op2==0))
+	if(flag && Open==Close && op1>op2)
 		printf("accepted\n");
 	else
 		printf("rejected\n");
