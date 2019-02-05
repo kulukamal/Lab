@@ -378,10 +378,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[14] =
+static yyconst flex_int16_t yy_accept[13] =
     {   0,
-        0,    0,    6,    5,    4,    5,    3,    3,    2,    3,
-        3,    1,    0
+        0,    0,    6,    5,    4,    3,    3,    2,    0,    3,
+        1,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -395,11 +395,11 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    4,    1,    1,    5,    5,    5,    5,    5,    5,
         5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
         5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        1,    1,    1,    1,    1,    1,    5,    5,    5,    6,
+        1,    1,    1,    1,    1,    1,    6,    6,    6,    6,
 
-        7,    5,    5,    5,    5,    5,    5,    5,    5,    8,
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        5,    5,    1,    1,    1,    1,    1,    1,    1,    1,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    1,    7,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -416,35 +416,33 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst flex_int32_t yy_meta[9] =
+static yyconst flex_int32_t yy_meta[8] =
     {   0,
-        1,    1,    1,    1,    2,    2,    2,    2
+        1,    1,    2,    1,    2,    2,    1
     } ;
 
-static yyconst flex_int16_t yy_base[15] =
+static yyconst flex_int16_t yy_base[14] =
     {   0,
-        0,    0,   13,   14,   14,    8,    0,    3,   14,    0,
-        4,    0,   14,    7
+        0,    0,   12,   13,   13,    8,    7,   13,    5,    0,
+       13,   13,    6
     } ;
 
-static yyconst flex_int16_t yy_def[15] =
+static yyconst flex_int16_t yy_def[14] =
     {   0,
-       13,    1,   13,   13,   13,   13,   14,   14,   13,   14,
-       14,   14,    0,   13
+       12,    1,   12,   12,   12,   13,   13,   12,   12,    7,
+       12,    0,   12
     } ;
 
-static yyconst flex_int16_t yy_nxt[23] =
+static yyconst flex_int16_t yy_nxt[21] =
     {   0,
-        4,    5,    6,    4,    7,    7,    8,    7,   10,   12,
-       11,    9,   13,    3,   13,   13,   13,   13,   13,   13,
-       13,   13
+        4,    5,    4,    4,    6,    7,    8,   10,   11,   12,
+        9,   12,    3,   12,   12,   12,   12,   12,   12,   12
     } ;
 
-static yyconst flex_int16_t yy_chk[23] =
+static yyconst flex_int16_t yy_chk[21] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,   14,   11,
-        8,    6,    3,   13,   13,   13,   13,   13,   13,   13,
-       13,   13
+        1,    1,    1,    1,    1,    1,    1,   13,    9,    7,
+        6,    3,   12,   12,   12,   12,   12,   12,   12,   12
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -461,14 +459,19 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "LRelem.l"
-#line 2 "LRelem.l"
-	int side=0;
-	int flag=0;
-	char s;
-	char rule[100];
-	char input[100],*l,*r,*temp,tempprod[20],productions[25][50];
-#line 472 "lex.yy.c"
+#line 1 "RF.l"
+#line 2 "RF.l"
+	#include<stdio.h>
+	#include<string.h>
+	#include "string"
+	#include "iostream"
+	#include "algorithm"
+	using namespace std;
+	string st;
+	string str[10];
+	int n=0;
+	int INT_MAX=100000000;
+#line 475 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -682,10 +685,9 @@ YY_DECL
 		}
 
 	{
-#line 9 "LRelem.l"
+#line 14 "RF.l"
 
-
-#line 689 "lex.yy.c"
+#line 691 "lex.yy.c"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -712,13 +714,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 14 )
+				if ( yy_current_state >= 13 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 14 );
+		while ( yy_base[yy_current_state] != 13 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -744,36 +746,35 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "LRelem.l"
-{return 0;}
+#line 15 "RF.l"
+{
+	st = yytext;
+}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 12 "LRelem.l"
-{side=1;}
+#line 18 "RF.l"
+{}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 13 "LRelem.l"
+#line 19 "RF.l"
 {
-				if(side)
-					r=yytext;
-				else
-					l=yytext;
-			}
+	str[n++]=yytext;
+}
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 19 "LRelem.l"
+#line 23 "RF.l"
 {return 0;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 20 "LRelem.l"
+#line 24 "RF.l"
 ECHO;
 	YY_BREAK
-#line 777 "lex.yy.c"
+#line 778 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1066,7 +1067,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 14 )
+			if ( yy_current_state >= 13 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1094,11 +1095,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 14 )
+		if ( yy_current_state >= 13 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 13);
+	yy_is_jam = (yy_current_state == 12);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1768,33 +1769,90 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 19 "LRelem.l"
+#line 23 "RF.l"
 
 
-int yywrap(){}
-
-int main()  {
-    
-    int i=0,j=0,flag=0;
-    l = strtok(input,"->");
-    r = strtok(NULL,"->");
-    temp = strtok(r,"|");
-    while(temp)  {
-        if(temp[0] == l[0])  {
-            flag = 1;
-            sprintf(productions[i++],"%s'->%s%s'\0",l,temp+1,l);
-        }
-        else
-            sprintf(productions[i++],"%s->%s%s'\0",l,temp,l);
-        temp = strtok(NULL,"|");
-    }
-    sprintf(productions[i++],"%s'->^",l);
-    if(flag == 0)
-        printf("The given productions don't have Left Recursion");
-    else
-        for(j=0;j<i;j++)  {
-            printf("\n%s",productions[j]);
-        }
-     printf("\n");
+int findMinLength(string arr[], int n) 
+{ 
+    int min = INT_MAX; 
+  
+    for (int i=0; i<=n-1; i++) 
+        if (arr[i].length() < min) 
+            min = arr[i].length(); 
+    return(min); 
+} 
+  
+bool allContainsPrefix(string arr[], int n, string str, 
+                       int start, int end) 
+{ 
+    for (int i=0; i<=n-1; i++) 
+        for (int j=start; j<=end; j++) 
+            if (arr[i][j] != str[j]) 
+                return (false); 
+    return (true); 
+} 
+  
+string commonPrefix(string arr[], int n) 
+{ 
+    int index = findMinLength(arr, n); 
+    string prefix;
+    int low = 0, high = index; 
+  
+    while (low <= high) 
+    { 
+        int mid = low + (high - low) / 2; 
+  
+        if (allContainsPrefix (arr, n, arr[0], low, mid)) 
+        { 
+            prefix = prefix + arr[0].substr(low, mid-low+1); 
+            low = mid + 1; 
+        } 
+  
+        else 
+            high = mid - 1; 
+    } 
+  
+    return (prefix); 
+} 
+int yywrap();
+main()
+{
+	yylex();
+	for(int i=0;i<n;i++)
+		{
+			reverse(str[i].begin(),str[i].end());
+		}
+	string ans = commonPrefix(str,n);
+	for(int i=0;i<n;i++)
+	{
+		reverse(str[i].begin(),str[i].end());
+	}
+	if(ans.length()!=0)
+	{
+		cout<<"S ->"<<"X"<<ans<<endl;
+		cout<<"X ->";
+		for(int i =0;i<n;i++)
+			{
+				string tmp;
+				if(i==n-1)
+					{
+						if(str[i].length()-ans.length())
+						cout<<str[i].substr(0,str[i].length()-ans.length());
+						else
+						cout<<"^";
+				}
+				else
+					{
+						if(str[i].length()-ans.length())
+						cout<<str[i].substr(0,str[i].length()-ans.length())<<" | ";
+						else
+						cout<<"^ | ";
+				}
+			}
+	}
+	else
+	{
+		cout<<"Not require!";
+	}
+	cout<<endl;
 }
-

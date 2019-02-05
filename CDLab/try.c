@@ -1,27 +1,52 @@
 #include<stdio.h>
 #include<string.h>
-void main()  {
-    char input[100],*l,*r,*temp,tempprod[20],productions[25][50];
-    int i=0,j=0,flag=0;
-    scanf("%s",input);
-    l = strtok(input,"->");
-    r = strtok(NULL,"->");
-    temp = strtok(r,"|");
-    while(temp)  {
-        if(temp[0] == l[0])  {
-            flag = 1;
-            sprintf(productions[i++],"%s'->%s%s'\0",l,temp+1,l);
-        }
-        else
-            sprintf(productions[i++],"%s->%s%s'\0",l,temp,l);
-        temp = strtok(NULL,"|");
-    }
-    sprintf(productions[i++],"%s->^\0",l);
-    if(flag == 0)
-        printf("The given productions don't have Left Recursion");
-    else
-        for(j=0;j<i;j++)  {
-            printf("\n%s",productions[j]);
-        }
-    printf("\n");
+#include<iostream.h>
+void main()
+{
+char in[10],ch[10],p[10],pb[10][10];
+int i,j,n,f;
+cout<<"\nEnter tne no of productions";
+cin>>n;
+cout<<"\nEnter the production and production body";
+for(i=0;i<n;i++)
+{
+cout<<"\nproduction";
+cin>>p[i];
+cout<<"\nproduction body";
+cout<<p[i]<<"->";
+cin>>pb[i];
+cout<<"\n";
+}
+for(i=0;i<n;i++)
+{
+for(j=0;j<3;j++)
+{
+if(p[i]==pb[0][j])
+{
+pb[0][j]=pb[i][0];
+cout<<pb[0];
+cout<<"\n";
+}
+}
+}
+cout<<"\nEnter the input string";
+cin>>in;
+i=0;
+for(j=0;j<n;j++)
+{
+if(pb[0][j]==in[i])
+{
+f++;
+i++;
+}
+}
+if(f==3)
+{
+cout<<"\naccepted";
+}
+else
+{
+cout<<"\n not accepted";
+}
+getch();
 }
