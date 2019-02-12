@@ -2,7 +2,7 @@
 using namespace std;
 char input[100];
 char prod[100][100];
-int pos=-1,l,st=-1;
+int pos=-1,l,st=-1,flag=1;
 char id,num;
 void E();
 void T();
@@ -29,7 +29,6 @@ void advance()
 }
 void E()
 {
-	strcpy(prod[++st],"E->TE'");
 	T();
 	Ed();
 }
@@ -39,7 +38,6 @@ void Ed()
 	if(input[pos]=='+')
 	{
 		p=0;
-		strcpy(prod[++st],"E'->+TE'");
 		advance();
 		T();
 		Ed();
@@ -47,22 +45,14 @@ void Ed()
 	if(input[pos]=='-')
 	{   
 		p=0;
-		strcpy(prod[++st],"E'->-TE'");
 		advance();
 		T();
 		Ed();
-	}
-
-                                   // Recursive Descent Parser
-	if(p==1)
-	{
-		strcpy(prod[++st],"E'->null");
 	}
 }
 
 void T()
 {
-	strcpy(prod[++st],"T->FT'");
 	F();
 	Td();
 }
@@ -72,30 +62,25 @@ void Td()
 	if(input[pos]=='*')
 	{
 		p=0;
-		strcpy(prod[++st],"T'->*FT'");
 		advance();
 		F();
 		Td();
 	}
 	if(input[pos]=='/')
 	{   p=0;
-		strcpy(prod[++st],"T'->/FT'");
 		advance();
 		F();
 		Td();
 	}
-if(p==1)
-	strcpy(prod[++st],"T'->null");
 }
 void F()
 {
-	if(input[pos]==id) {
-		strcpy(prod[++st],"F->id");
+	int p=1;
+	if(input[pos]==id) {p=0;
 		advance();        
 	  }
 	if(input[pos]=='(')
-	{
-		strcpy(prod[++st],"F->(E)");
+	{p=0;
 		advance();
 		E();
 		if(input[pos]==')')   {
@@ -103,10 +88,11 @@ void F()
 	   }
 	}
 	if(input[pos]==num)
-	{
-		strcpy(prod[++st],"F->num");
+	{p=0;
 		advance();
 	}
+	if(p==1)
+		flag=0;
 }
 int main()
 {
@@ -117,9 +103,13 @@ int main()
 	input[l]='$';
 	advance();
 	E();
-	if(pos==l)
+	if(pos==l and flag)
 	{
 		printf("String Accepted\n");
+		for(i=0;i<=st;i++)
+		{
+			printf("%s\n",prod[i]);
+		}
 	}
 	else
 	{
