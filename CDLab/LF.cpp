@@ -48,7 +48,7 @@ main()
 	int n;
 	cout<<"No of rules:";
 	cin>>n;
-	string str[n],tmp[n];
+	string str[n];
 	cout<<"S -> \n";
 	for(int i=0;i<n;i++)
 		{

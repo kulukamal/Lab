@@ -13,7 +13,7 @@ class stack
 			top=0;
 		}
  
-	void push(char ch)
+	void push(char ch) 
 	{
 		s[top]=ch;
 		top++;

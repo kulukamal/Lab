@@ -369,8 +369,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 4
+#define YY_END_OF_BUFFER 5
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -378,10 +378,9 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[13] =
+static yyconst flex_int16_t yy_accept[9] =
     {   0,
-        0,    0,    6,    5,    4,    3,    3,    2,    0,    3,
-        1,    0
+        0,    0,    5,    2,    3,    1,    1,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -389,17 +388,17 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    3,
+        3,    1,    3,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+
         1,    1,    1,    1,    3,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    4,    1,    1,    5,    5,    5,    5,    5,    5,
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        1,    1,    1,    1,    1,    1,    6,    6,    6,    6,
-
-        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
-        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
-        6,    6,    1,    7,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -416,33 +415,29 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst flex_int32_t yy_meta[8] =
+static yyconst flex_int32_t yy_meta[4] =
     {   0,
-        1,    1,    2,    1,    2,    2,    1
+        1,    1,    2
     } ;
 
-static yyconst flex_int16_t yy_base[14] =
+static yyconst flex_int16_t yy_base[10] =
     {   0,
-        0,    0,   12,   13,   13,    8,    7,   13,    5,    0,
-       13,   13,    6
+        0,    0,    5,    6,    6,    0,    0,    6,    2
     } ;
 
-static yyconst flex_int16_t yy_def[14] =
+static yyconst flex_int16_t yy_def[10] =
     {   0,
-       12,    1,   12,   12,   12,   13,   13,   12,   12,    7,
-       12,    0,   12
+        8,    1,    8,    8,    8,    9,    9,    0,    8
     } ;
 
-static yyconst flex_int16_t yy_nxt[21] =
+static yyconst flex_int16_t yy_nxt[10] =
     {   0,
-        4,    5,    4,    4,    6,    7,    8,   10,   11,   12,
-        9,   12,    3,   12,   12,   12,   12,   12,   12,   12
+        4,    5,    6,    7,    8,    3,    8,    8,    8
     } ;
 
-static yyconst flex_int16_t yy_chk[21] =
+static yyconst flex_int16_t yy_chk[10] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,   13,    9,    7,
-        6,    3,   12,   12,   12,   12,   12,   12,   12,   12
+        1,    1,    1,    9,    3,    8,    8,    8,    8
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -459,19 +454,14 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "RF.l"
-#line 2 "RF.l"
-	#include<stdio.h>
-	#include<string.h>
-	#include "string"
-	#include "iostream"
-	#include "algorithm"
-	using namespace std;
-	string st;
-	string str[10];
-	int n=0;
-	int INT_MAX=100000000;
-#line 475 "lex.yy.c"
+#line 1 "lr0_ar.l"
+#line 2 "lr0_ar.l"
+   #include<bits/stdc++.h>
+   using namespace std;
+   int flag=1,pos=0;
+   string input;
+   stack<int> s;
+#line 465 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -685,9 +675,9 @@ YY_DECL
 		}
 
 	{
-#line 14 "RF.l"
+#line 9 "lr0_ar.l"
 
-#line 691 "lex.yy.c"
+#line 681 "lex.yy.c"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -714,13 +704,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 13 )
+				if ( yy_current_state >= 9 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 13 );
+		while ( yy_base[yy_current_state] != 6 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -746,35 +736,26 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "RF.l"
-{
-	st = yytext;
-}
+#line 10 "lr0_ar.l"
+{input=yytext;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 18 "RF.l"
-{}
+#line 11 "lr0_ar.l"
+{flag=0;}
 	YY_BREAK
 case 3:
+/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 19 "RF.l"
-{
-	str[n++]=yytext;
-}
-	YY_BREAK
-case 4:
-/* rule 4 can match eol */
-YY_RULE_SETUP
-#line 23 "RF.l"
+#line 12 "lr0_ar.l"
 {return 0;}
 	YY_BREAK
-case 5:
+case 4:
 YY_RULE_SETUP
-#line 24 "RF.l"
+#line 13 "lr0_ar.l"
 ECHO;
 	YY_BREAK
-#line 778 "lex.yy.c"
+#line 759 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1067,7 +1048,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 13 )
+			if ( yy_current_state >= 9 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1095,11 +1076,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 13 )
+		if ( yy_current_state >= 9 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 12);
+	yy_is_jam = (yy_current_state == 8);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1769,90 +1750,128 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 23 "RF.l"
+#line 12 "lr0_ar.l"
 
 
-int findMinLength(string arr[], int n) 
-{ 
-    int min = INT_MAX; 
-  
-    for (int i=0; i<=n-1; i++) 
-        if (arr[i].length() < min) 
-            min = arr[i].length(); 
-    return(min); 
-} 
-  
-bool allContainsPrefix(string arr[], int n, string str, 
-                       int start, int end) 
-{ 
-    for (int i=0; i<=n-1; i++) 
-        for (int j=start; j<=end; j++) 
-            if (arr[i][j] != str[j]) 
-                return (false); 
-    return (true); 
-} 
-  
-string commonPrefix(string arr[], int n) 
-{ 
-    int index = findMinLength(arr, n); 
-    string prefix;
-    int low = 0, high = index; 
-  
-    while (low <= high) 
-    { 
-        int mid = low + (high - low) / 2; 
-  
-        if (allContainsPrefix (arr, n, arr[0], low, mid)) 
-        { 
-            prefix = prefix + arr[0].substr(low, mid-low+1); 
-            low = mid + 1; 
-        } 
-  
-        else 
-            high = mid - 1; 
-    } 
-  
-    return (prefix); 
-} 
+
 int yywrap();
+int GOTO(int i,string s)
+{
+   if(i==0&&s=="E")return 1;
+   if(i==0&&s=="T")return 9;
+   if(i==3&&s=="T")return 4;
+   if(i==6&&s=="E")return 7;
+   if(i==6&&s=="T")return 9;
+}
+string ACTION(int i,string s)
+{
+   if(i==0&&s=="i")return "s5";
+   if(i==0&&s=="(")return "s6";
+   if(i==1&&s=="+")return "s3";
+   if(i==1&&s=="$")return "s2";
+   if(i==2)return "accept";
+   if(i==3&&s=="i")return "s5";
+   if(i==3&&s=="(")return "s6";
+   if(i==4)return "r2";
+   if(i==5)return "r4";
+   if(i==6&&s=="i")return "s5";
+   if(i==6&&s=="(")return "s6";
+   if(i==7&&s==")")return "s8";
+   if(i==7&&s=="+")return "s3";
+   if(i==8)return "r5";
+   if(i==9)return "r3";
+}
+void display()
+{
+   stack<int> tmp;
+   while(!s.empty())
+   {
+      cout<<s.top()<<" ";
+      tmp.push(s.top());
+      s.pop();
+   }
+   while(!tmp.empty())
+   {
+      s.push(tmp.top());
+      tmp.pop();
+   }
+   cout<<endl;
+}
 main()
 {
-	yylex();
-	for(int i=0;i<n;i++)
-		{
-			reverse(str[i].begin(),str[i].end());
-		}
-	string ans = commonPrefix(str,n);
-	for(int i=0;i<n;i++)
-	{
-		reverse(str[i].begin(),str[i].end());
-	}
-	if(ans.length()!=0)
-	{
-		cout<<"S ->"<<"X"<<ans<<endl;
-		cout<<"X ->";
-		for(int i =0;i<n;i++)
-			{
-				string tmp;
-				if(i==n-1)
-					{
-						if(str[i].length()-ans.length())
-						cout<<str[i].substr(0,str[i].length()-ans.length());
-						else
-						cout<<"^";
-				}
-				else
-					{
-						if(str[i].length()-ans.length())
-						cout<<str[i].substr(0,str[i].length()-ans.length())<<" | ";
-						else
-						cout<<"^ | ";
-				}
-			}
-	}
-	else
-	{
-		cout<<"Not require!";
-	}
-	cout<<endl;
+   yylex();
+   input = input+"$";
+   if(flag)
+   {
+      s.push(0);
+      while(1)
+      {
+         display();
+         int u=s.top();
+         string res=ACTION(u,input.substr(pos,1));
+         if(res=="s2")
+         {
+            s.push(2);
+            pos++;
+         }
+         else if(res=="s3")
+         {
+            s.push(3);
+            pos++;
+         }
+         else if(res=="s5")
+         {
+            s.push(5);
+            pos++;
+         }
+         else if(res=="s6")
+         {
+            s.push(6);
+            pos++;
+         }
+         else if(res=="s8")
+         {
+            s.push(8);
+            pos++;
+         }
+         else if(res=="r2")
+         {
+            s.pop();
+            s.pop();
+            s.pop();
+            u=s.top();
+            s.push(GOTO(u,"E"));
+         }
+         else if(res=="r3")
+         {
+            s.pop();
+            u=s.top();
+            s.push(GOTO(u,"E"));
+         }
+         else if(res=="r4")
+         {
+            s.pop();
+            u=s.top();
+            s.push(GOTO(u,"T"));
+         }
+          else if(res=="r5")
+         {
+            s.pop();
+            s.pop();
+            s.pop();
+            u=s.top();
+            s.push(GOTO(u,"T"));
+         }
+         else if(res=="accept")
+         {
+            printf("accepted\n");
+            exit(0);
+         }
+         else
+         {
+            printf("rejected\n");
+            exit(0);
+         }
+      }
+   }
 }
