@@ -454,8 +454,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lr0_ar.l"
-#line 2 "lr0_ar.l"
+#line 1 "lr1_ar.l"
+#line 2 "lr1_ar.l"
    #include<bits/stdc++.h>
    using namespace std;
    int flag=1,pos=0;
@@ -675,7 +675,7 @@ YY_DECL
 		}
 
 	{
-#line 9 "lr0_ar.l"
+#line 9 "lr1_ar.l"
 
 #line 681 "lex.yy.c"
 
@@ -736,23 +736,23 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 10 "lr0_ar.l"
+#line 10 "lr1_ar.l"
 {input=yytext;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 11 "lr0_ar.l"
+#line 11 "lr1_ar.l"
 {flag=0;}
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 12 "lr0_ar.l"
+#line 12 "lr1_ar.l"
 {return 0;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 13 "lr0_ar.l"
+#line 13 "lr1_ar.l"
 ECHO;
 	YY_BREAK
 #line 759 "lex.yy.c"
@@ -1750,7 +1750,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 12 "lr0_ar.l"
+#line 12 "lr1_ar.l"
 
 
 
@@ -1772,27 +1772,28 @@ string ACTION(int i,string s)
    if(i==2)return "accept";
    if(i==3&&s=="i")return "s5";
    if(i==3&&s=="(")return "s6";
-   if(i==4)return "r2";
-   if(i==5)return "r4";
+   if(i==4 && (s==")"||s=="+"||s=="$"))return "r2";
+   if(i==5 && (s==")"||s=="+"||s=="$"))return "r4";
    if(i==6&&s=="i")return "s5";
    if(i==6&&s=="(")return "s6";
    if(i==7&&s==")")return "s8";
    if(i==7&&s=="+")return "s3";
-   if(i==8)return "r5";
-   if(i==9)return "r3";
+   if(i==8&&(s==")"||s=="+"||s=="$"))return "r5";
+   if(i==9&&(s==")"||s=="+"||s=="$"))return "r3";
 }
 void display()
 {
    stack<int> tmp;
    while(!s.empty())
    {
-      cout<<s.top()<<" ";
+      
       tmp.push(s.top());
       s.pop();
    }
    while(!tmp.empty())
    {
       s.push(tmp.top());
+      cout<<s.top()<<" ";
       tmp.pop();
    }
    cout<<endl;
@@ -1874,4 +1875,9 @@ main()
          }
       }
    }
+   else
+         {
+            printf("rejected\n");
+            exit(0);
+         }
 }
