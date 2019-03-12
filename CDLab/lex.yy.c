@@ -388,15 +388,15 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    3,
-        3,    1,    3,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    3,    3,    1,    1,
 
-        1,    1,    1,    1,    3,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -454,13 +454,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lr1_ar.l"
-#line 2 "lr1_ar.l"
-   #include<bits/stdc++.h>
-   using namespace std;
-   int flag=1,pos=0;
-   string input;
-   stack<int> s;
+#line 1 "lalr.l"
+#line 2 "lalr.l"
+	#include<bits/stdc++.h>
+	using namespace std;
+	int flag=1,pos=0;
+	string input;
+	stack<int> s;
 #line 465 "lex.yy.c"
 
 #define INITIAL 0
@@ -675,7 +675,7 @@ YY_DECL
 		}
 
 	{
-#line 9 "lr1_ar.l"
+#line 9 "lalr.l"
 
 #line 681 "lex.yy.c"
 
@@ -736,23 +736,23 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 10 "lr1_ar.l"
+#line 10 "lalr.l"
 {input=yytext;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 11 "lr1_ar.l"
+#line 11 "lalr.l"
 {flag=0;}
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 12 "lr1_ar.l"
+#line 12 "lalr.l"
 {return 0;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 13 "lr1_ar.l"
+#line 13 "lalr.l"
 ECHO;
 	YY_BREAK
 #line 759 "lex.yy.c"
@@ -1750,134 +1750,104 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 12 "lr1_ar.l"
+#line 12 "lalr.l"
 
 
 
 int yywrap();
 int GOTO(int i,string s)
 {
-   if(i==0&&s=="E")return 1;
-   if(i==0&&s=="T")return 9;
-   if(i==3&&s=="T")return 4;
-   if(i==6&&s=="E")return 7;
-   if(i==6&&s=="T")return 9;
+	if(i==0&&s=="S")return 1;
+	if(i==0&&s=="A")return 2;
+	if(i==2&&s=="A")return 5;
+	if(i==3&&s=="A")return 6;
 }
 string ACTION(int i,string s)
 {
-   if(i==0&&s=="i")return "s5";
-   if(i==0&&s=="(")return "s6";
-   if(i==1&&s=="+")return "s3";
-   if(i==1&&s=="$")return "s2";
-   if(i==2)return "accept";
-   if(i==3&&s=="i")return "s5";
-   if(i==3&&s=="(")return "s6";
-   if(i==4 && (s==")"||s=="+"||s=="$"))return "r2";
-   if(i==5 && (s==")"||s=="+"||s=="$"))return "r4";
-   if(i==6&&s=="i")return "s5";
-   if(i==6&&s=="(")return "s6";
-   if(i==7&&s==")")return "s8";
-   if(i==7&&s=="+")return "s3";
-   if(i==8&&(s==")"||s=="+"||s=="$"))return "r5";
-   if(i==9&&(s==")"||s=="+"||s=="$"))return "r3";
+	if(i==0&&s=="a")return "s3";
+	if(i==0&&s=="b")return "s4";
+	if(i==1)return "accept";
+	if(i==2&&s=="a")return "s3";
+	if(i==2&&s=="b")return "s4";
+	if(i==3&&s=="a")return "s3";
+	if(i==3&&s=="b")return "s4";
+	if(i==4)return "r3";
+	if(i==5&&s=="$")return "r1";
+	if(i==6)return "r2";
 }
 void display()
 {
-   stack<int> tmp;
-   while(!s.empty())
-   {
-      
-      tmp.push(s.top());
-      s.pop();
-   }
-   while(!tmp.empty())
-   {
-      s.push(tmp.top());
-      cout<<s.top()<<" ";
-      tmp.pop();
-   }
-   cout<<endl;
+	stack<int> tmp;
+	while(!s.empty())
+	{
+		cout<<s.top()<<" ";
+		tmp.push(s.top());
+		s.pop();
+	}
+	while(!tmp.empty())
+	{
+		s.push(tmp.top());
+		tmp.pop();
+	}
+	cout<<endl;
 }
 main()
 {
-   yylex();
-   input = input+"$";
-   if(flag)
-   {
-      s.push(0);
-      while(1)
-      {
-         display();
-         int u=s.top();
-         string res=ACTION(u,input.substr(pos,1));
-         if(res=="s2")
-         {
-            s.push(2);
-            pos++;
-         }
-         else if(res=="s3")
-         {
-            s.push(3);
-            pos++;
-         }
-         else if(res=="s5")
-         {
-            s.push(5);
-            pos++;
-         }
-         else if(res=="s6")
-         {
-            s.push(6);
-            pos++;
-         }
-         else if(res=="s8")
-         {
-            s.push(8);
-            pos++;
-         }
-         else if(res=="r2")
-         {
-            s.pop();
-            s.pop();
-            s.pop();
-            u=s.top();
-            s.push(GOTO(u,"E"));
-         }
-         else if(res=="r3")
-         {
-            s.pop();
-            u=s.top();
-            s.push(GOTO(u,"E"));
-         }
-         else if(res=="r4")
-         {
-            s.pop();
-            u=s.top();
-            s.push(GOTO(u,"T"));
-         }
-          else if(res=="r5")
-         {
-            s.pop();
-            s.pop();
-            s.pop();
-            u=s.top();
-            s.push(GOTO(u,"T"));
-         }
-         else if(res=="accept")
-         {
-            printf("accepted\n");
-            exit(0);
-         }
-         else
-         {
-            printf("rejected\n");
-            exit(0);
-         }
-      }
-   }
-   else
-         {
-            printf("rejected\n");
-            exit(0);
-         }
+	yylex();
+	input = input+"$";
+	if(flag)
+	{
+		s.push(0);
+		while(1)
+		{
+			display();
+			int u=s.top();
+			string res=ACTION(u,input.substr(pos,1));
+			if(res=="s3")
+			{
+				s.push(3);
+				pos++;
+			}
+			else if(res=="s4")
+			{
+				s.push(4);
+				pos++;
+			}
+			else if(res=="s5")
+			{
+				s.push(5);
+				pos++;
+			}
+			else if(res=="r1")
+			{
+				s.pop();
+				s.pop();
+				u=s.top();
+				s.push(GOTO(u,"S"));
+			}
+			else if(res=="r2")
+			{
+				s.pop();
+				s.pop();
+				u=s.top();
+				s.push(GOTO(u,"A"));
+			}
+			else if(res=="r3")
+			{
+				s.pop();
+				u=s.top();
+				s.push(GOTO(u,"A"));
+			}
+			else if(res=="accept")
+			{
+				printf("accepted\n");
+				exit(0);
+			}
+			else
+			{
+				printf("rejected\n");
+				exit(0);
+			}
+		}
+	}
 }
