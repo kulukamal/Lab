@@ -77,6 +77,7 @@ main()
 	{
 		reverse(str[i].begin(),str[i].end());
 	}
+	reverse(ans.begin(),ans.end());
 	if(ans.length()!=0)
 	{
 		cout<<"S ->"<<"X"<<ans<<endl;
