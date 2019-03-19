@@ -1,0 +1,32 @@
+//valid
+4
+S>AA
+S>B
+A>a
+B>b
+
+//invalid left recursion
+2
+S>Sa
+A>a
+
+//invalid left factoring
+3
+S>A
+A>ab
+A>a
+
+//valid
+5
+S>Ab
+S>Bc
+A>a
+A>^
+B>d
+
+//invalid table conflict
+4
+S>aB
+S>^
+B>Sa
+B>b

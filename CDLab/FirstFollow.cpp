@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 
-void followfirst(char, int, int); 
-void follow(char c); 
-void findfirst(char, int, int); 
+void f1(char, int, int); 
+void f2(char, int, int); 
+void f3(char c); 
 
 int count, n = 0; 
 
@@ -63,7 +63,7 @@ int main(int argc, char **argv)
         if (xxx == 1) 
             continue; 
         
-        findfirst(c, 0, 0); 
+        f2(c, 0, 0); 
         ptr += 1; 
         
         visited[ptr] = c; 
@@ -115,7 +115,7 @@ int main(int argc, char **argv)
         if (xxx == 1) 
             continue; 
         
-        follow(ck); 
+        f3(ck); 
         ptr += 1; 
         
         visitede[ptr] = ck; 
@@ -156,7 +156,7 @@ int main(int argc, char **argv)
         printf("Invalid LL(1) Grammar.\n");
 } 
 
-void follow(char c) 
+void f3(char c) 
 { 
     int i, j; 
     
@@ -171,19 +171,19 @@ void follow(char c)
             { 
                 if(input[i][j+1] != '\0') 
                 { 
-                    followfirst(input[i][j+1], i, (j+2)); 
+                    f1(input[i][j+1], i, (j+2)); 
                 } 
                 
                 if(input[i][j+1]=='\0' && c!=input[i][0]) 
                 { 
-                    follow(input[i][0]); 
+                    f3(input[i][0]); 
                 } 
             } 
         } 
     } 
 } 
 
-void findfirst(char c, int q1, int q2) 
+void f2(char c, int q1, int q2) 
 { 
     int j; 
     
@@ -201,7 +201,7 @@ void findfirst(char c, int q1, int q2)
                 else if(input[q1][q2] != '\0'
                         && (q1 != 0 || q2 != 0)) 
                 { 
-                    findfirst(input[q1][q2], q1, (q2+1)); 
+                    f2(input[q1][q2], q1, (q2+1)); 
                 } 
                 else
                     first[n++] = '^'; 
@@ -212,13 +212,13 @@ void findfirst(char c, int q1, int q2)
             } 
             else
             { 
-                findfirst(input[j][2], j, 3); 
+                f2(input[j][2], j, 3); 
             } 
         } 
     } 
 } 
 
-void followfirst(char c, int c1, int c2) 
+void f1(char c, int c1, int c2) 
 { 
     int k; 
     
@@ -243,11 +243,11 @@ void followfirst(char c, int c1, int c2)
             { 
                 if(input[c1][c2] == '\0') 
                 { 
-                    follow(input[c1][0]); 
+                    f3(input[c1][0]); 
                 } 
                 else
                 { 
-                    followfirst(input[c1][c2], c1, c2+1); 
+                    f1(input[c1][c2], c1, c2+1); 
                 } 
             } 
             j++; 
