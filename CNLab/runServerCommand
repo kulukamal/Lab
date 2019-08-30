@@ -1,0 +1,103 @@
+cd Documents/Network/unpv13e-master/intro
+make ./daytimetcpsrv
+sudo ./daytimetcpsrv
+
+
+#include	"unp.h"
+#include <stdio.h> 
+#include <string.h> 
+
+int
+main(int argc, char **argv)
+{
+	int					listenfd, connfd;
+	struct sockaddr_in	servaddr;
+	FILE                *sentFile;
+	char				buff[MAXLINE],line[MAXLINE],fileName[MAXLINE];
+
+	listenfd = Socket(AF_INET, SOCK_STREAM, 0);
+
+	bzero(&servaddr, sizeof(servaddr));
+	servaddr.sin_family      = AF_INET;
+	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	servaddr.sin_port        = htons(13);	/* daytime server */
+
+	Bind(listenfd, (SA *) &servaddr, sizeof(servaddr));
+
+	Listen(listenfd, LISTENQ);
+	
+	for ( ; ; ) {
+		connfd = Accept(listenfd, (SA *) NULL, NULL);
+		// read file name sent by client
+		read(connfd, fileName, MAXLINE);
+		// open the file requested by client
+        sentFile = fopen(fileName,"r");
+        if ( sentFile == NULL ) 
+        { 
+          // if file not found send error message
+          snprintf(buff, sizeof(buff), "%s file not found.",fileName);
+          Write(connfd, buff, strlen(buff)); 
+        }
+        else
+        {
+            // if file found read the file data
+            while( fgets ( line, sizeof(line) , sentFile ) != NULL ) 
+            { 
+                // send the file dat to client
+                snprintf(buff, sizeof(buff), "%s",line);
+                 Write(connfd, buff, strlen(buff));
+             } 
+        
+        }
+        // close all connections
+        fclose(sentFile);
+		Close(connfd);
+	}
+}
+
+
+
+#include	"unp.h"
+#include <stdio.h> 
+#include <string.h> 
+
+int
+main(int argc, char **argv)
+{
+	int					sockfd, n;
+	char				recvline[MAXLINE + 1];
+	FILE                *recivedFile;
+	struct sockaddr_in	servaddr;
+
+	if (argc != 3)
+		err_quit("usage: a.out <IPaddress> <FileName>");
+
+	if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+		err_sys("socket error");
+
+	bzero(&servaddr, sizeof(servaddr));
+	servaddr.sin_family = AF_INET;
+	servaddr.sin_port   = htons(13);	/* daytime server */
+	if (inet_pton(AF_INET, argv[1], &servaddr.sin_addr) <= 0)
+		err_quit("inet_pton error for %s", argv[1]);
+
+	if (connect(sockfd, (SA *) &servaddr, sizeof(servaddr)) < 0)
+		err_sys("connect error");
+    
+    // once connection succeed send file name to server
+     write(sockfd,argv[2], MAXLINE);
+     
+     // reecive data sent by the server
+	while ( (n = read(sockfd, recvline, MAXLINE)) > 0) {
+	    err_sys("%s",recvline);
+		recvline[n] = 0;	/* null terminate */
+		if (fputs(recvline, stdout) == EOF)
+			err_sys("fputs error");
+	}
+	if (n < 0)
+		err_sys("read error");
+	
+	fclose(recivedFile);
+
+	exit(0);
+}

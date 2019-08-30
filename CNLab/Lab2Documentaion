@@ -1,0 +1,98 @@
+1. PING ww.google.com
+    
+    * PING www.google.com (172.217.163.196) 84(84) bytes of data.
+      64 bytes from maa05s06-in-f4.1e100.net (172.217.163.196): icmp_seq=1 ttl=49 time=72.4 ms
+      64 bytes from maa05s06-in-f4.1e100.net (172.217.163.196): icmp_seq=2 ttl=49 time=71.9 ms
+      64 bytes from maa05s06-in-f4.1e100.net (172.217.163.196): icmp_seq=3 ttl=49 time=71.7 ms
+      64 bytes from maa05s06-in-f4.1e100.net (172.217.163.196): icmp_seq=4 ttl=49 time=71.5 ms
+      .
+      .
+      .
+      64 bytes from maa05s06-in-f4.1e100.net (172.217.163.196): icmp_seq=84 ttl=49 time=71.5 ms
+        
+        means 84 sucessfull trial connection are made to www.google.com on ip(172.217.163.196) and 64bytes of data received with time
+        taken as time=72.4 ms 
+2. NETSTAT
+
+    Active Internet connections (w/o servers)
+    Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+    tcp6       1      0 ip6-localhost:46256     ip6-localhost:ipp       CLOSE_WAIT 
+    Active UNIX domain sockets (w/o servers)
+    Proto RefCnt Flags       Type       State         I-Node   Path
+    unix  2      [ ]         DGRAM                    16407    @/org/freedesktop/systemd1/notify/17947454535466541305
+    unix  2      [ ]         DGRAM                    346      /run/systemd/journal/socket
+    unix  5      [ ]         DGRAM                    13618    /dev/log
+    unix  14     [ ]         DGRAM                    347      /dev/log
+    unix  3      [ ]         STREAM     CONNECTED     11930    @/tmp/dbus-IyIhG6zn1f
+    unix  3      [ ]         STREAM     CONNECTED     15661    
+    unix  3      [ ]         STREAM     CONNECTED     18303    /var/run/dbus/system_bus_socket
+    .
+    .
+    .
+    .
+    unix  3      [ ]         STREAM     CONNECTED     11824    /var/run/dbus/system_bus_socket
+    unix  3      [ ]         DGRAM                    11329
+    
+    displays network connections for Transmission Control Protocol , routing tables, and a number of network 
+    interface and network protocol statistics. It is used for finding problems in the network and to determine the amount of traffic on the 
+    network as a performance measurement
+    
+    -   >netstat -r
+        Kernel IP routing table
+        Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+        default         192.168.40.1    0.0.0.0         UG        0 0          0 eth0
+        192.168.40.0    *               255.255.252.0   U         0 0          0 eth0
+        
+        So we see that kernel routing table information was displayed using the -r option. The flag 'U' indicates that this entry is up 
+        while the flag 'G' indicates that this entry is not a direct entry i.e. the destination indicated in this route entry is not on the 
+        same network.
+        
+3. NSLOOKUP
+
+    >nslookup google.com
+    
+    Server:		127.0.1.1
+    Address:	127.0.1.1#53
+
+    Non-authoritative answer:
+    Name:	google.com
+    Address: 172.217.31.206
+    
+    nslookup followed by the domain name will display the “A Record” (IP Address) of the domain. Use this command to find the address 
+    record for a domain. It queries to domain name servers and get the details.
+    
+    >nslookup 172.217.31.206
+    
+    217.172.in-addr.arpa	nameserver = ns3.google.com.
+    217.172.in-addr.arpa	nameserver = ns1.google.com.
+    217.172.in-addr.arpa	nameserver = ns2.google.com.
+    217.172.in-addr.arpa	nameserver = ns4.google.com.
+    ns1.google.com	internet address = 216.239.32.10
+    ns1.google.com	has AAAA address 2001:4860:4802:32::a
+    ns2.google.com	internet address = 216.239.34.10
+    ns2.google.com	has AAAA address 2001:4860:4802:34::a
+    ns3.google.com	internet address = 216.239.36.10
+    ns3.google.com	has AAAA address 2001:4860:4802:36::a
+    ns4.google.com	internet address = 216.239.38.10
+    ns4.google.com	has AAAA address 2001:4860:4802:38::a
+    
+    You can also do the reverse DNS look-up by providing the IP Address as argument to nslookup.
+    
+4. TRACEPATH
+
+    >tracepath nitrkl.ac.in
+    
+     1?: [LOCALHOST]                                         pmtu 1500
+     1:  192.168.40.1                                          0.296ms 
+     1:  192.168.40.1                                          0.337ms
+     
+     tracepath command in Linux is used to traces path to destination discovering MTU along this path. It uses UDP port or some 
+     random port. It is similar to traceroute, but it does not require superuser privileges and has no fancy options. tracepath6 is a good 
+     replacement for traceroute6 and classic example of the application of Linux error queues. The situation with IPv4 is worse because 
+     commercial IP routers do not return enough information in ICMP error messages. Probably, it will change, when they will be updated. 
+     For now, it uses Van Jacobson’s trick, sweeping a range of UDP ports to maintain trace history.
+
+
+
+
+
