@@ -56,20 +56,20 @@ string mod2div(string transMsg,string key)
 main()
 {
      srand(time(0)); 
-    string msg = "11110110110010", key = "10011"; // error in 1st and 3rd bits from right
+    string msg = "100100000", key = "1101"; // error in 1st and 3rd bits from right
     string rem = mod2div(msg,key);
     string transMsg = Xor(msg,rem);
     cout<<"------------------------- With out Error -----------------------------------------\n";
     cout<<"Sent Message\t: "<<msg<<endl<<"Reminder\t: "<<rem<<endl<<"Encoded Message\t: "<<transMsg<<endl<<"Recived Message\t: "<<transMsg<<endl;
     string test = mod2div(transMsg,key);
-    cout<<"Test output : "<<test<<endl;
+    cout<<"Test output\t: "<<test<<endl;
     cout<<"------------------------- With Error ---------------------------------------------\n";
-    cout<<"Sent Message\t: "<<msg<<endl<<"Reminder: "<<rem<<endl<<"Encoded Message : "<<transMsg<<endl;
+    cout<<"Sent Message\t: "<<msg<<endl<<"Reminder\t: "<<rem<<endl<<"Encoded Message\t: "<<transMsg<<endl;
     int l = rand()%msg.length();
     if(transMsg[l] == '0')transMsg[l] = '1';
     else transMsg[l] = '0';
-    cout<<"Recived Message : "<<transMsg<<endl;
+    cout<<"Recived Message\t: "<<transMsg<<endl;
     test = mod2div(transMsg,key);
-    cout<<"Test output : "<<test<<endl;
+    cout<<"Test output\t: "<<test<<endl;
     
 }
