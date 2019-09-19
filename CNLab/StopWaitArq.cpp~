@@ -46,7 +46,7 @@ int main()
          cout<<"====> Frame : "<<frames[count];
          if(delay)
          {
-             cout<<" Duplicate";
+             cout<<"Duplicate";
              delay = false;
          }
          cout<<endl;
