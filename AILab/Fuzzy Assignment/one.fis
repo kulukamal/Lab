@@ -1,0 +1,30 @@
+[System]
+Name='one'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='speed'
+Range=[2304 2536]
+NumMFs=3
+MF1='mf1':'trimf',[2300 2363 2420]
+MF2='mf2':'trimf',[2390 2420 2450.00869565217]
+MF3='mf3':'trimf',[2420 2480 2540]
+
+[Output1]
+Name='voltage'
+Range=[2.32 2.48]
+NumMFs=3
+MF1='mf1':'trimf',[2.32 2.36 2.4]
+MF2='mf2':'trimf',[2.38 2.4 2.42]
+MF3='mf3':'trimf',[2.4 2.44 2.48]
+
+[Rules]
