@@ -1,0 +1,79 @@
+#include<bits/stdc++.h>
+#include <limits.h>  
+#define V 5   // limit the no of nodes
+using namespace std; 
+
+int minDistance(int dist[], bool visited[]) 
+{ 
+	int minV = INT_MAX, min_index; 
+
+	for (int v = 0; v < V; v++) 
+		if (visited[v] == false && dist[v] <= minV) 
+		{ 
+			minV = dist[v]; 
+			min_index = v; 
+		}
+		
+	return min_index; 
+} 
+
+
+int printer(int dist[]) 
+{ 
+	for (int i=0;i < V;i++) 
+		cout<<i+1<<" ======>> "<<dist[i]<<endl; 
+} 
+
+
+void dijkstra(int graph[V][V], int source) 
+{ 
+	int dist[V];  
+	bool visited[V];
+
+	for (int i = 0;i < V;i++) 
+	{
+		dist[i] = INT_MAX; 
+		visited[i] = false; 
+	} 
+	dist[source] = 0; 
+
+	for (int count = 0;count < V-1;count++) 
+	{ 
+		int u = minDistance(dist, visited); 
+		visited[u] = true; 
+		
+		for (int v = 0; v < V; v++) 
+		{
+			if (!visited[v] && graph[u][v] && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v]) 
+				dist[v] = dist[u] + graph[u][v];
+		}
+	} 
+	printer(dist); 
+} 
+
+int main() 
+{ 
+	
+	int graph[V][V] = { { 0, 4, 10, 110, 125 }, 
+						{ 4, 0, 8, 110, 12 }, 
+						{ 10, 8, 0, 7, 17 }, 
+						{ 110, 110, 7, 0, 9 }, 
+						{ 125, 12, 17, 9, 0 }, 
+					  }; 
+	int snt=0,rcv=0;
+	for(int i=0;i<V;i++)
+	{
+	    for(int j=i+1;j<V;j++)
+	    {
+	        int tmp;
+	        cout<<"packet sent from "<<i<<" to "<<j<<" : ";tmp = rand() % 100 + 1;cout<<tmp<<endl;
+	        snt += tmp;
+	        cout<<"packet sent from "<<i<<" to "<<j<<" : ";tmp = rand() % tmp/2 + tmp/2;cout<<tmp<<endl;
+	        rcv += tmp;
+	    }
+	}
+
+	dijkstra(graph, 0);  // 0th indexing
+	cout<<"Ratio :"<<(float)snt/rcv<<endl;
+	return 0; 
+} 

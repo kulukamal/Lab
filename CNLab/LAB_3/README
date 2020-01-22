@@ -1,0 +1,6 @@
+1. Network activity monitoring with wireshark
+
+	a. in general observed the working of the data flow through the port. Inspected packet size and data.
+	b. tried to monitor on particular ip address
+	
+found out that https packets were encrypted while http packets were plain text

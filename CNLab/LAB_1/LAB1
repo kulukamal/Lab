@@ -1,0 +1,12 @@
+1. The networking devices installed in the department include routers, hubs, switches and gateway.
+2. The nework type is LAN and network topology is a hybrid of tree and bus topology.
+3. File nd printer sharing in different OS
+4. Network address configuration in different OS
+5. ipconfig /all
+    Mac id – 6C-3B-E5-2E-61-31
+    IP address – 192.168.4.168
+6. Work group and domain name configuration
+7. a. arp provides a list of immediately connected systems with their ip and mac addresses.
+   b. ipconfig shows all the network details of the networking devices installed on the system.
+   c. tracert gives the number of hops and the time required to get to a server along with the ip      addresses along the way.
+   d. nslookup requests the DNS server for the ip address of the domain name requested and displays it.
